@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">  <!-- Character encoding for the webpage -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures responsive design on mobile -->
+    <title>Chatbot Interface</title>
+    <link rel="stylesheet" href="{% static 'blog/styles.css' %}">  <!-- Linking the external stylesheet -->
+    <!-- Including jQuery from CDN for AJAX requests -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Chatbox to display conversation -->
+        <div class="chat-box" id="chat-box">
+            <!-- Initial bot message -->
+            <div class="chat-message bot-message">Hello! How can I assist you today?</div>
+        </div>
+
+        <!-- Input field for user to type their message -->
+        <input type="text" id="user-input" class="user-input" placeholder="Type your message..." />
+
+        <!-- Button to trigger sending the message -->
+        <button id="send-btn" class="send-btn">Send</button>
+    </div>
+    
+    <script>
+        // Function to handle user input and display it on the chatbox
+        function getUserResponse() {
+            // Get the user's input message
+            var userText = $("#user-input").val();
+
+            // Create HTML to display the user's message with 'user-message' class
+            var userHtml = "<p class='chat-message user-message'>User: <span>" + userText + "</span></p>";
+            
+            // Append the user's message to the chat box
+            $("#chat-box").append(userHtml);
+
+            // Clear the input field after the message is sent
+            $("#user-input").val("");  
+
+            // Send the user's message to the server using GET request
+            $.get('/blog/getUserResponse', { userMessage: userText }).done(function(data) {
+                // When a response is received from the server (i.e., chatbot response)
+                var returnedMessage = "<p class='botText'>Chatbot: <span>" + data + "</span></p>";
+                
+                // Append the chatbot's response to the chat box
+                $("#chat-box").append(returnedMessage);
+            });
+        }
+
+        // When the 'Send' button is clicked, call the getUserResponse function
+        $('#send-btn').click(function() {  
+            getUserResponse();
+        });
+    </script>
+</body>
+</html>

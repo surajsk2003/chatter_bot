@@ -1,0 +1,78 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;  /* Set font to Arial or sans-serif */
+    background-color: #f4f4f4;      /* Light gray background */
+    padding: 20px;                   /* Add padding around the body */
+}
+
+/* Container for the chat interface */
+.chat-container {
+    max-width: 600px;                /* Limit the width of the chat */
+    margin: 0 auto;                  /* Center the container */
+    background-color: white;        /* White background */
+    border-radius: 8px;              /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+    overflow: hidden;                /* Hide overflow */
+    padding: 20px;                   /* Add padding inside the container */
+}
+
+/* Container to display chat messages */
+.chat-box {
+    max-height: 400px;               /* Limit the height of chat box */
+    overflow-y: auto;                /* Enable vertical scrolling if content overflows */
+    margin-bottom: 20px;             /* Add space below the chat box */
+}
+
+/* Styling for each chat message */
+.chat-message {
+    padding: 10px;                   /* Add padding inside each message */
+    margin-bottom: 15px;              /* Space between messages */
+    border-radius: 8px;              /* Rounded corners for each message */
+}
+
+/* Styling for bot messages */
+.bot-message {
+    background-color: #e0e0e0;       /* Light gray background for bot */
+    text-align: left;                 /* Align bot message to the left */
+    font-family: 'Courier New', Courier, monospace; /* Monospaced font for bot */
+}
+
+/* Styling for user messages */
+.user-message {
+    background-color: #eef2f5;       /* Light blue background for user messages */
+    color: rgb(27, 23, 23);          /* Dark text color for readability */
+    text-align: right;                /* Align user message to the right */
+    font-family: 'Courier New', Courier, monospace; /* Monospaced font for user */
+}
+
+/* Styling for user input field */
+.user-input {
+    width: 80%;                       /* Make the input field occupy 80% of the container width */
+    padding: 10px;                    /* Padding inside the input field */
+    border: 1px solid #ccc;           /* Light gray border */
+    border-radius: 8px;               /* Rounded corners */
+    font-size: 16px;                  /* Set font size to 16px */
+}
+
+/* Styling for the send button */
+.send-btn {
+    width: 15%;                       /* Set width to 15% of container */
+    padding: 10px;                    /* Padding inside the button */
+    background-color: #007bff;        /* Blue background for the button */
+    color: white;                     /* White text color */
+    border: none;                     /* Remove default border */
+    border-radius: 8px;               /* Rounded corners */
+    cursor: pointer;                 /* Pointer cursor on hover */
+}
+
+/* Hover effect for the send button */
+.send-btn:hover {
+    background-color: #0056b3;        /* Darker blue background on hover */
+}
